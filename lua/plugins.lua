@@ -1,4 +1,3 @@
-
 local status, packer = pcall(require, 'packer')
 if (not status) then
   print("Packer is not installed")
@@ -15,4 +14,9 @@ return require('packer').startup(function(use)
   use { 'hoob3rt/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  use { 'nvim-treesitter/nvim-treesitter', 
+    run = ':TSUpdate'
+  }
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
 end)
