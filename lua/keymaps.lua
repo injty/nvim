@@ -48,6 +48,6 @@ keymap.set('n', '<Space>h', '0')
 keymap.set('n', '<Space>l', '$')
 
 -- files
-keymap.set('n', 'sf', ':Files')
+keymap.set('n', 'sf', ':Ex<CR>')
 
 -- prettier
