@@ -39,3 +39,4 @@ vim.scriptencoding = 'utf-8'
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.path:append { '**' }
 vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.undofile = true
