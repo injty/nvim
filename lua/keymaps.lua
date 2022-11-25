@@ -47,11 +47,4 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 keymap.set('n', '<Space>h', '0')
 keymap.set('n', '<Space>l', '$')
 
--- files
-keymap.set('n', 'sf', ':Ex<CR>')
-
--- fzf
-keymap.set('n', 'fr', ':History<CR>', {noremap = true})
-keymap.set('n', 'ff', ':e %:h/<C-d>', {noremap = true})
-
 -- prettier

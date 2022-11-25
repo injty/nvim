@@ -11,14 +11,17 @@ return require('packer').startup(function(use)
   use { 'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
-  use { 'hoob3rt/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  use 'kyazdani42/nvim-web-devicons'
+  use 'hoob3rt/lualine.nvim'
+
   use { 'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
+
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
+
 end)
