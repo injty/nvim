@@ -1,4 +1,5 @@
 vim.cmd('autocmd!')
+
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
