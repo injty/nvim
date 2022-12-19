@@ -12,10 +12,12 @@ return require('packer').startup(function(use)
   use 'olivercederborg/poimandres.nvim'
   use 'rebelot/kanagawa.nvim'
   use 'rmehri01/onenord.nvim'
-  use 'EdenEast/nightfox.nvim'
   use 'rafamadriz/onepro'
-  use 'rebelot/kanagawa.nvim'
+  use 'EdenEast/nightfox.nvim'
   use 'kyazdani42/nvim-web-devicons'
+
+  -- other
+  use { 'akinsho/bufferline.nvim', tag = "v3.*" }
   use 'hoob3rt/lualine.nvim'
   use 'xiyaowong/nvim-transparent'
 
