@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+
 local keymap = vim.keymap
 
 -- remove ctrl-z for windows
