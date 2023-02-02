@@ -33,12 +33,10 @@ local on_attach = function(client, bufnr)
     keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
     keymap.set("n", "<leader>ru", ":TypescripuRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
   end
-
 end
-
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+local signs = { Error = "🤬", Warn = "😡", Hint = "😠", Info = "🤓" }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
