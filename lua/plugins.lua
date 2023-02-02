@@ -1,4 +1,5 @@
 local status, packer = pcall(require, 'packer')
+
 if (not status) then
   print("Packer is not installed")
   return
@@ -9,11 +10,14 @@ vim.cmd [[packadd packer.nvim ]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'phha/zenburn.nvim'
+  use 'jnurmine/Zenburn'
   use 'olivercederborg/poimandres.nvim'
   use 'rebelot/kanagawa.nvim'
   use 'rmehri01/onenord.nvim'
   use 'rafamadriz/onepro'
   use 'EdenEast/nightfox.nvim'
+
   use 'kyazdani42/nvim-web-devicons'
   use { 'akinsho/bufferline.nvim', tag = "v3.*" }
   use 'hoob3rt/lualine.nvim'
