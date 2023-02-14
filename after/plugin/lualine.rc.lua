@@ -4,7 +4,7 @@ if (not status) then return end
 l.setup({
   options = {
     icons_enabled = true,
-    theme = 'zenburn',
+    theme = 'solarized',
     component_separators = { left = '|', right = '|'},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {}
