@@ -7,10 +7,11 @@ end
 
 vim.cmd [[packadd packer.nvim ]]
 
-return require('packer').startup(function(use)
+return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'svrana/neosolarized.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
   use 'tjdevries/colorbuddy.nvim'
   use 'phha/zenburn.nvim'
 
