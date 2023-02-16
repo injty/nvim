@@ -15,12 +15,15 @@ l.setup({
     lualine_c = { {
       'filename',
       file_status = true,
-      path = 0
+      path = 0,
+      symbols = {
+        modified = '⚡'
+      }
     } },
     lualine_x = {
-      { 'diagnostics', sources = { 'nvim_diagnostic' }, symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' } },
+      { 'diagnostics', sources = { 'nvim_diagnostic' }, symbols = { error = '😡', warn = '😠', info = '🤓', hint = '💡' } },
       'encoding',
-      'filetype'
+      'filetype',
     },
     lualine_y = {},
     lualine_z = { 'location' }

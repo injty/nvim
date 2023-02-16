@@ -5,14 +5,11 @@ bufferline.setup {
   options = {
     mode = "tabs",
     separator_style = 'slant',
-    indicator = {
-      style = 'underline'
-    },
     always_show_bufferline = false,
     show_buffer_close_icons = false,
     show_close_icon = false,
     show_tab_indicators = false,
-    modified_icon = ' 🔥',
+    modified_icon = '📌',
     left_trunc_marker = "",
     right_trunc_marker = "",
     close_command = "ZZ",
@@ -38,7 +35,7 @@ bufferline.setup {
     buffer_selected = {
       fg = '#b2b2b2',
       bg = '#001b26',
-      italic = false,
+      italic = true,
     },
     fill = {
       bg = '#001b26',
