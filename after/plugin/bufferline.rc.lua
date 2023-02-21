@@ -33,9 +33,9 @@ bufferline.setup {
       bg = '#001b26'
     },
     buffer_selected = {
-      fg = '#b2b2b2',
+      fg = '#ffffff',
       bg = '#001b26',
-      italic = true,
+      italic = false,
     },
     fill = {
       bg = '#001b26',
