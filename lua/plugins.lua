@@ -10,6 +10,7 @@ vim.cmd [[packadd packer.nvim ]]
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use "cpea2506/one_monokai.nvim"
   use 'svrana/neosolarized.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use 'tjdevries/colorbuddy.nvim'
