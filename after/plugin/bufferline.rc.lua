@@ -17,55 +17,55 @@ bufferline.setup {
   },
   highlights = {
     separator = {
-      fg = '#001b26',
-      bg = '#001b26',
+      fg = '#282c34',
+      bg = '#282c34',
     },
     separator_selected = {
-      fg = '#001b26',
-      bg = '#001b26'
+      fg = '#282c34',
+      bg = '#282c34'
     },
     separator_visible = {
-      fg = '#001b26',
-      bg = '#001b26'
+      fg = '#282c34',
+      bg = '#282c34'
     },
     background = {
       fg = '#657b83',
-      bg = '#001b26'
+      bg = '#282c34'
     },
     buffer_selected = {
       fg = '#ffffff',
-      bg = '#001b26',
+      bg = '#282c34',
       italic = false,
     },
     fill = {
-      bg = '#001b26',
-      fg = '#001b26'
+      bg = '#282c34',
+      fg = '#282c34'
     },
     modified = {
       fg = '#c9c9c9',
-      bg = '#001b26',
+      bg = '#282c34',
     },
     modified_visible = {
       fg = '#c9c9c9',
-      bg = '#001b26',
+      bg = '#282c34',
     },
     modified_selected = {
       fg = '#c9c9c9',
-      bg = '#001b26',
+      bg = '#282c34',
     },
     duplicate = {
       fg = '#657b83',
-      bg = '#001b26',
+      bg = '#282c34',
       italic = false
     },
     duplicate_selected = {
       fg = '#657b83',
-      bg = '#001b26',
+      bg = '#282c34',
       italic = false,
     },
     duplicate_visible = {
       fg = '#657b83',
-      bg = '#001b26',
+      bg = '#282c34',
       italic = false
     },
   },
