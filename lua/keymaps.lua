@@ -24,7 +24,7 @@ keymap.set('n', '<S-Tab>', ':tabprevious<CR>')
 keymap.set('n', 'te', ':tabedit<CR>', { silent = true })
 
 -- windows split
-keymap.set('n', 'ss', ':split<CR><C-w>w', { silent = true })
+keymap.set('n', 'sg', ':split<CR><C-w>w', { silent = true })
 keymap.set('n', 'sv', ':vsplit<CR><C-w>w', { silent = true })
 
 -- windows navigation
