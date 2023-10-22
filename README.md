@@ -1,5 +1,4 @@
-# powershell && oh-my-posh
-
+# nvim.
 > directory:
 
 ```c:\users\{username}\appdata\local\nvim```
