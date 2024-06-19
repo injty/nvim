@@ -1,43 +1,52 @@
 vim.cmd('autocmd!')
+local o = vim.opt
 
-vim.opt.showcmd = true
-vim.opt.cmdheight = 1
-vim.opt.laststatus = 2
+o.mouse = "a"
+o.mousescroll = "ver:5,hor:5"
+o.mousemoveevent = true
 
-vim.opt.title = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.wrap = false
-vim.opt.scrolloff = 20
+o.showcmd = true
+o.showtabline = 1
+o.cmdheight = 1
+o.laststatus = 2
 
-vim.opt.termguicolors = true
-vim.opt.winblend = 0
-vim.opt.wildoptions = 'pum'
-vim.opt.pumblend = 5
-vim.opt.cursorline = true
-vim.opt.list = true
-vim.opt.background = 'dark'
+o.signcolumn = "auto:2"
+o.title = true
+o.number = true
+o.relativenumber = true
+o.wrap = false
+o.scrolloff = 20
 
-vim.opt.smarttab = true
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.ai = true
-vim.opt.si = true
-vim.opt.breakindent = true
-vim.opt.hlsearch = true
-vim.opt.backspace = 'start,eol,indent'
+o.termguicolors = true
+o.winblend = 0
+o.wildoptions = 'pum'
+o.pumblend = 5
+o.cursorline = true
+o.list = true
+o.background = 'dark'
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.inccommand = 'split'
-vim.opt.ignorecase = true
 
-vim.opt.encoding = 'utf-8'
-vim.opt.fileencoding = 'utf-8'
+o.smarttab = true
+o.expandtab = true
+o.tabstop = 2
+o.vartabstop = "2"
+o.softtabstop = 2
+o.shiftwidth = 2
+o.ai = true
+o.si = true
+o.breakindent = true
+o.hlsearch = true
+o.backspace = 'start,eol,indent'
+
+o.swapfile = false
+o.backup = false
+o.inccommand = 'split'
+o.ignorecase = true
+
 vim.scriptencoding = 'utf-8'
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.path:append { '**' }
-vim.opt.wildignore:append { '*/node_modules/*' }
-vim.opt.undofile = true
+o.encoding = 'utf-8'
+o.fileencoding = 'utf-8'
+o.clipboard = 'unnamedplus'
+o.path:append { '**' }
+o.wildignore:append { '*/node_modules/*' }
+o.undofile = true
