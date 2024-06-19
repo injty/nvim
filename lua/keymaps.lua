@@ -50,4 +50,9 @@ k.set('n', '<C-w><down>', '<C-w>-')
 k.set('n', '<Space>h', '0')
 k.set('n', '<Space>l', '$')
 
--- prettier
+-- telescope keymaps
+local builtin = require('telescope.builtin')
+k.set('n', '<leader>ff', builtin.find_files, {})
+k.set('n', '<leader>fg', builtin.live_grep, {})
+k.set('n', '<leader>fb', builtin.buffers, {})
+k.set('n', '<leader>fh', builtin.help_tags, {})

@@ -2,8 +2,17 @@ require("lazy").setup({
   {"ThePrimeagen/vim-be-good"},
   {"folke/which-key.nvim", opts = {}},
   {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
-  {"nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }}
+  {"nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }},
+  {"nvim-telescope/telescope.nvim", tag = "0.1.6", dependencies = { 'nvim-lua/plenary.nvim' }},
 })
+
+require("telescope").setup{
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+    }
+  }
+}
 
 require('lualine').setup {
   options = {
