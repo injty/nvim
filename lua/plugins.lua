@@ -4,6 +4,7 @@ require("lazy").setup({
   {"ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
   {"nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }},
   {"nvim-telescope/telescope.nvim", tag = "0.1.6", dependencies = { 'nvim-lua/plenary.nvim' }},
+  {"craftzdog/solarized-osaka.nvim", lazy = false, priority = 1000, opts = {}}
 })
 
 require("telescope").setup{
@@ -17,7 +18,7 @@ require("telescope").setup{
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox',
+    theme = 'solarized',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -80,4 +81,4 @@ require("gruvbox").setup({
   transparent_mode = true,
 })
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme solarized-osaka")
