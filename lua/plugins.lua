@@ -18,7 +18,7 @@ require("telescope").setup{
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'solarized',
+    theme = 'gruvbox',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -78,7 +78,7 @@ require("gruvbox").setup({
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
-  transparent_mode = true,
+  transparent_mode = false,
 })
 
-vim.cmd("colorscheme solarized-osaka")
+vim.cmd("colorscheme gruvbox")
