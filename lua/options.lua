@@ -1,4 +1,3 @@
-vim.cmd('autocmd!')
 local o = vim.opt
 
 o.mouse = "a"
@@ -43,10 +42,8 @@ o.backup = false
 o.inccommand = 'split'
 o.ignorecase = true
 
-vim.scriptencoding = 'utf-8'
-o.encoding = 'utf-8'
-o.fileencoding = 'utf-8'
+-- o.fileencoding = 'utf-8'
 o.clipboard = 'unnamedplus'
-o.path:append { '**' }
-o.wildignore:append { '*/node_modules/*' }
-o.undofile = true
+-- o.path:append { '**' }
+-- o.wildignore:append { '*/node_modules/*' }
+-- o.undofile = true
