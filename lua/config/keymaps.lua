@@ -4,6 +4,9 @@ local k = vim.keymap
 -- Настройка leader-keys
 g.mapleader = ' '
 
+k.set('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true }) -- Сохранить файл
+k.set('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true }) -- Выйти
+
 -- Отключение Ctrl-z для Windows
 k.set('n', '<C-z>', '<Nop>')
 
@@ -30,7 +33,7 @@ k.set('n', 'sg', ':split<CR><C-w>w', { silent = true })
 k.set('n', 'sv', ':vsplit<CR><C-w>w', { silent = true })
 
 -- Навигация по окнам
-k.set('n', '<Space>', '<C-w>w')
+k.set('n', '<Leader>ww', '<C-w>w', { desc = 'cycle windows' })
 k.set('', 's<left>', '<C-w>h')
 k.set('', 's<right>', '<C-w>l')
 k.set('', 's<up>', '<C-w>k')
@@ -47,17 +50,29 @@ k.set('n', '<C-w><up>', ':resize +2<CR>')
 k.set('n', '<C-w><down>', ':resize -2<CR>')
 
 -- Координация строк
-k.set('n', '<Space>h', '0')
-k.set('n', '<Space>l', '$')
+k.set('n', '<Leader>h', '0', { desc = 'start of line' })
+k.set('n', '<Leader>l', '$', { desc = 'end of line' })
 
 -- Telescope
 local builtin = require('telescope.builtin')
-k.set('n', '<leader>ff', builtin.find_files, {})
-k.set('n', '<leader>fg', builtin.live_grep, {})
-k.set('n', '<leader>fb', builtin.buffers, {})
-k.set('n', '<leader>fh', builtin.help_tags, {})
-k.set('n', '<leader>fd', builtin.diagnostics, {})
-k.set('n', '<leader>fo', builtin.oldfiles, {})
+k.set('n', '<Leader>ff', builtin.find_files, {})
+k.set('n', '<Leader>fg', builtin.live_grep, {})
+k.set('n', '<Leader>fb', builtin.buffers, {})
+k.set('n', '<Leader>fh', builtin.help_tags, {})
+k.set('n', '<Leader>fd', builtin.diagnostics, {})
+k.set('n', '<Leader>fo', builtin.oldfiles, {})
+
+-- nvim-tree
+k.set('n', '<Leader>;', '<cmd>NvimTreeToggle<CR>', { desc = 'toggle nvim tree explorer' })
+
+-- LSP
+k.set('n', '<Leader>gd', '<cmd>Telescope lsp_definitions<CR>', { desc = "go to definition" })
+k.set('n', '<Leader>gr', '<cmd>Telescope lsp_references<CR>', { desc = "find references" })
+k.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { desc = "show documentation" })
+k.set('n', '<Leader>ca', '<cmd>Lspsaga code_action<CR>', { desc = "code action" })
+k.set('n', '<Leader>rn', '<cmd>Lspsaga rename<CR>', { desc = "rename" })
+k.set('n', '<Leader>mdn', ':MDN<CR>', { desc = "open mdn for word under cursor" })
+k.set('n', '<Leader>fmt', ':Format<CR>', { desc = "format file" })
 
 -- Другие команды
-vim.api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
+k.set('n', 'Esc', ':noh<CR>', { noremap = true, silent = true })
