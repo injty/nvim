@@ -1,9 +1,6 @@
 local g = vim.g
 local k = vim.keymap
 
--- Настройка leader-keys
-g.mapleader = ' '
-
 k.set('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true }) -- Сохранить файл
 k.set('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true }) -- Выйти
 

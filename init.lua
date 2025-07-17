@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -15,7 +18,10 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("config.lazy")
+local ok, err = pcall(require, "config.lazy")
+if not ok then
+  vim.notify("Failed to load config.lazy: " .. err, vim.log.levels.ERROR)
+end
+
 require("config.options")
 require("config.keymaps")
-

@@ -1,0 +1,31 @@
+-- -- Файловый менеджер
+-- return {
+-- 	"nvim-tree/nvim-tree.lua",
+-- 	version = "*",
+-- 	lazy = false,
+-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+-- 	opts = {
+-- 		git = { enable = true },
+-- 		filters = { custom = { "^.git$" } },
+-- 	},
+-- 	keys = {
+-- 		{ "<Leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file explorer" },
+-- 	},
+-- 	config = function()
+-- 		require("nvim-tree").setup({
+-- 			sort = {
+-- 				sorter = "case_sensitive",
+-- 			},
+-- 			view = {
+-- 				side = "right",
+-- 				width = 30,
+-- 			},
+-- 			renderer = {
+-- 				group_empty = true,
+-- 			},
+-- 			filters = {
+-- 				dotfiles = true,
+-- 			},
+-- 		})
+-- 	end,
+-- }
