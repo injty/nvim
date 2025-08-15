@@ -5,7 +5,7 @@ o.mousescroll = "ver:5,hor:5"
 o.mousemoveevent = true
 
 o.showcmd = true
-o.showtabline = 1
+o.showtabline = 2
 o.cmdheight = 1
 o.laststatus = 2
 

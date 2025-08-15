@@ -4,8 +4,9 @@ require("lazy").setup({
 	{ import = "plugins.gitsigns" },
 	{ import = "plugins.lsp" },
 	{ import = "plugins.lualine" },
+  { import = "plugins.bufferline" },
 	{ import = "plugins.nvim-cmp" },
---	{ import = "plugins.nvim-tree" },
+	{ import = "plugins.nvim-tree" },
 	{ import = "plugins.telescope" },
 	{ import = "plugins.theme" },
 	{ import = "plugins.treesitter" },
@@ -25,7 +26,9 @@ require("lazy").setup({
 	{
 		"rafamadriz/friendly-snippets",
 	},
-}, {
+},
+
+{
 	performance = {
 		rtp = {
 			disabled_plugins = { "netrw", "netrwPlugin" },
