@@ -7,7 +7,7 @@ return {
       options = {
         mode = "buffers",
         diagnostics = "nvim_lsp",
-        separator_style = "slant", -- или "thick", "thin", "slope", и т.д.
+        separator_style = "slope", -- или "thick", "thin", "slope", и т.д.
         offsets = {
           {
             filetype = "NvimTree",

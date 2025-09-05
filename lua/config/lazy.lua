@@ -1,4 +1,5 @@
 require("lazy").setup({
+
 	-- Imports
 	{ import = "plugins.conform" },
 	{ import = "plugins.gitsigns" },

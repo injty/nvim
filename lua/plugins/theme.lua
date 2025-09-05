@@ -1,4 +1,19 @@
 return {
+  { "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      background = {
+        dark = "mocha",
+      },
+      transparent_background = true,
+    },
+		-- NOTE: set theme
+		config = function()
+			vim.cmd.colorscheme("catppuccin")
+		end,
+  },
+
 	{
 		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
@@ -122,10 +137,6 @@ return {
 		"jnurmine/Zenburn",
 		lazy = false,
 		priority = 1000,
-		-- NOTE: set theme
-		config = function()
-			vim.cmd.colorscheme("Zenburn")
-		end,
 	},
 	{
 		"RRethy/base16-nvim",
