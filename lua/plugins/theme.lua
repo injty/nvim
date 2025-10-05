@@ -1,17 +1,25 @@
 return {
-  { "catppuccin/nvim",
+  {
+    "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
+    lazy = false,
     opts = {
-      background = {
-        dark = "mocha",
+      flavour = "mocha", -- можно "latte", "frappe", "macchiato", "mocha"
+      transparent_background = true, -- Включает прозрачность
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        notify = false,
+        mini = false,
       },
-      transparent_background = true,
     },
-		-- NOTE: set theme
-		config = function()
-			vim.cmd.colorscheme("catppuccin")
-		end,
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin")
+    end,
   },
 
 	{
