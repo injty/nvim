@@ -1,31 +1,57 @@
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
+-- Горячие клавиши для улучшения стандартного поведения Vim
+-- Подробнее см. `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- Remap for dealing with word wrap
+-- Настройка перемещения при включенном переносе строк (word wrap)
+-- Если строка визуально разбита на несколько, j и k будут перемещать по видимым строкам (gj/gk),
+-- но если перед нажатием передать число (например, 5j), то прыгнет честно на 5 строк вниз по коду.
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Оставление курсора на месте при объединении строк (через Shift+J)
 vim.keymap.set("n", "J", "mzJ`z")
+
+-- Центрирование экрана (zz) при быстром скролле вниз (<C-d>) и вверх (<C-u>)
+-- Курсор всегда будет оставаться ровно по центру экрана, а не улетать вверх/вниз
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Центрирование экрана при поиске через / или ?
+-- 'n' прыгает к следующему совпадению, 'N' к предыдущему, а 'zzzv' удерживает строку по центру
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
+-- Позволяет выделить слово, нажать <leader>p и заменить его на скопированное ранее.
+-- При этом старое (замененное) слово НЕ перезапишет твой буфер обмена (черная дыра `_d`).
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+-- Копирование напрямую в системный буфер обмена macOS
+-- Теперь после <leader>y текст можно спокойно вставить за пределами neovim
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+-- Удаление выделенного текста по нажатию на 'fd' в Visual-режиме
+-- Текст стирается в черную дыру (`_`), то что ты скопировал ранее — останется в буфере.
+vim.keymap.set("v", "fd", [["_d]], { desc = "Delete selection without copying" })
 
+-- Удаление всей строки без сохранения в буфер по Shift+K в Normal-режиме
+-- Команда '"_dd' удаляет текущую строку в регистр черной дыры.
+vim.keymap.set("n", "K", [["_dd]], { desc = "Delete whole line without copying" })
+
+-- Отключение бесполезного дефолтного режима Ex-mode по клавише Q (чтобы случайно не зайти в него)
 vim.keymap.set("n", "Q", "<nop>")
 
--- Clear search with <esc>
+-- Сброс подсветки поиска при нажатии на <esc>
+-- Нашел слово через /, нажал Esc — желтые маркеры совпадений сразу погасли, код снова чистый
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--- Better indenting
+-- Улучшенное управление табами (отступами) в Visual режиме
+-- После нажатия < или > для сдвига кода, выделение блока НЕ пропадает, можно двигать дальше
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+-- Быстрый прыжок в начало и конец строки в Normal и Visual режимах
+-- <leader>h прыгает на первый печатный символ (умное начало строки)
+-- <leader>l прыгает на самый конец строки
+vim.keymap.set({ "n", "v" }, "<leader>h", "^", { desc = "Go to start of line (smart)" })
+vim.keymap.set({ "n", "v" }, "<leader>l", "$", { desc = "Go to end of line" })

@@ -9,8 +9,6 @@ local function project_files()
     opts.show_untracked = true
     require("telescope.builtin").git_files(opts)
   else
-    -- [ ИСПРАВЛЕНО ]: Используем get_clients вместо get_active_clients
-    -- Фильтруем по текущему буферу (bufnr = 0), чтобы взять правильный LSP-клиент
     local client = vim.lsp.get_clients({ bufnr = 0 })[1]
     if client then
       opts.cwd = client.config.root_dir

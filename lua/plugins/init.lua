@@ -29,13 +29,6 @@ return {
   {
     "MunifTanjim/nui.nvim",
   },
-  -- {
-  --   "kylechui/nvim-surround",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("nvim-surround").setup()
-  --   end,
-  -- },
   {
     "akinsho/toggleterm.nvim",
     event = "VeryLazy",

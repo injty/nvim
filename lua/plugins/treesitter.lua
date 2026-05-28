@@ -1,20 +1,24 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-        -- Вот эта строчка решает проблему:
-        local ts = require("nvim-treesitter") 
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	config = function()
+		local ts = require("nvim-treesitter")
 
-        ts.setup({
-            -- Твои старые настройки остаются без изменений, например:
-            ensure_installed = { 
-                "lua", "javascript", "typescript", "tsx", "html", "css", "json" 
-            },
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-            indent = { enable = true },
-        })
-    end,
+		ts.setup({
+			ensure_installed = {
+				"lua",
+				"javascript",
+				"typescript",
+				"tsx",
+				"html",
+				"css",
+				"json",
+			},
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = false,
+			},
+			indent = { enable = true },
+		})
+	end,
 }
