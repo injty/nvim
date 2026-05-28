@@ -15,12 +15,19 @@ return {
         end
       end
     end,
-    opts = {
-      filesystem = {
-        follow_current_file = {
-          enabled = true,
+
+    config = function()
+      require("neo-tree").setup({
+        window = {
+          position = "right",
+          width = 50,
         },
-      },
-    },
+        filesystem = {
+          follow_current_file = {
+            enabled = true,
+          },
+        },
+      })
+    end,
   },
 }
