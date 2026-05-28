@@ -4,7 +4,18 @@ return {
     cmd = "Neotree",
     keys = {
       { "<leader>n", "<cmd>Neotree toggle<cr>", desc = "Explorer NeoTree (root dir)", remap = true },
-      { "<leader>e", "<cmd>Neotree focus<cr>", desc = "Focus NeoTree", remap = true },
+      {
+        "<leader>e",
+        function()
+          if vim.bo.filetype == "neo-tree" then
+            vim.cmd("wincmd p")
+          else
+            vim.cmd("Neotree focus")
+          end
+        end,
+        desc = "Toggle Focus NeoTree",
+        remap = true,
+      },
     },
     init = function()
       vim.g.neo_tree_remove_legacy_commands = 1
@@ -21,6 +32,9 @@ return {
         window = {
           position = "right",
           width = 50,
+          mappings = {
+            ["c"] = "close_all_nodes",
+          },
         },
         filesystem = {
           follow_current_file = {

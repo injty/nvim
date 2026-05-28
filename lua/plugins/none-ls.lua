@@ -1,7 +1,7 @@
 local M = {
   "nvimtools/none-ls.nvim",
   event = "BufReadPre",
-  dependencies = { 
+  dependencies = {
     "williamboman/mason.nvim",
     "jay-babu/mason-null-ls.nvim",
     "nvimtools/none-ls-extras.nvim",
@@ -10,7 +10,7 @@ local M = {
 
 M.config = function()
   local nls = require("null-ls")
-  
+
   nls.setup({
     debounce = 150,
     save_after_format = false,

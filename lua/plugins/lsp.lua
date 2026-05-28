@@ -109,7 +109,6 @@ M.config = function()
     require("lspconfig").lua_ls.setup(lua_settings)
   end
 
-  -- [УДАЛЕНО]: Старый ручной вызов none-ls стерт. Теперь Lazy инициализирует его сам!
 end
 
 return M
