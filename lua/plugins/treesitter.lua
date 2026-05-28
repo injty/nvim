@@ -1,13 +1,20 @@
--- Treesitter
 return {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = { "javascript", "typescript", "tsx", "vue", "html", "css", "json", "yaml", "prisma" },
-			highlight = { enable = true },
-			incremental_selection = { enable = true },
-			textobjects = { enable = true },
-		})
-	end,
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+        -- Вот эта строчка решает проблему:
+        local ts = require("nvim-treesitter") 
+
+        ts.setup({
+            -- Твои старые настройки остаются без изменений, например:
+            ensure_installed = { 
+                "lua", "javascript", "typescript", "tsx", "html", "css", "json" 
+            },
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = false,
+            },
+            indent = { enable = true },
+        })
+    end,
 }

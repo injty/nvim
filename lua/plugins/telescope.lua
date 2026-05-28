@@ -1,22 +1,58 @@
-return {
-	-- Поиск
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.6",
-		cmd = "Telescope",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			defaults = {
-				file_ignore_patterns = { "node_modules/", ".git/" },
-			},
-		},
-		keys = {
-			{ "<Leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
-			{ "<Leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Live Grep" },
-			{ "<Leader>fb", "<cmd>Telescope buffers<CR>", desc = "Buffers" },
-			{ "<Leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Help Tags" },
-			{ "<Leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics" },
-			{ "<Leader>fo", "<cmd>Telescope oldfiles<CR>", desc = "Recent Files" },
-		},
-	},
+local M = {
+  "nvim-telescope/telescope.nvim",
+  cmd = { "Telescope" },
 }
+
+local function project_files()
+  local opts = {}
+  if vim.loop.fs_stat(".git") then
+    opts.show_untracked = true
+    require("telescope.builtin").git_files(opts)
+  else
+    -- [ ИСПРАВЛЕНО ]: Используем get_clients вместо get_active_clients
+    -- Фильтруем по текущему буферу (bufnr = 0), чтобы взять правильный LSP-клиент
+    local client = vim.lsp.get_clients({ bufnr = 0 })[1]
+    if client then
+      opts.cwd = client.config.root_dir
+    end
+    require("telescope.builtin").find_files(opts)
+  end
+end
+
+local function live_grep()
+  require("telescope.builtin").live_grep({})
+end
+
+local function diagnostics()
+  require("telescope.builtin").diagnostics({})
+end
+
+local function buffers()
+  require("telescope.builtin").buffers({})
+end
+
+M.dependencies = {
+  { "nvim-lua/plenary.nvim" },
+}
+
+M.keys = {
+  { "<leader>f", project_files, desc = "Open file picker" },
+  { "<leader>/", live_grep, desc = "Global search" },
+  { "<leader>d", diagnostics, desc = "Open diagnostic picker" },
+  { "<leader>b", buffers, desc = "Open buffer picker" },
+}
+
+M.config = function()
+  require("telescope").setup({
+    defaults = {
+      mappings = {
+        i = {
+          ["<C-u>"] = false,
+          ["<C-d>"] = false,
+        },
+      },
+    },
+  })
+end
+
+return M
