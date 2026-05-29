@@ -12,6 +12,13 @@ M.dependencies = {
 }
 
 M.config = function()
+	local border = "single" -- варианты: "single", "double", "rounded", "solid"
+
+	-- Для всплывающих окон диагностики (ошибок) API осталось прежним и чистым
+	vim.diagnostic.config({
+		float = { border = border },
+	})
+
 	require("plugins.mason")
 	-- Вытягиваем список серверов из конфига mason.lua
 	local servers = require("plugins.mason").servers
@@ -50,6 +57,23 @@ M.config = function()
 		nmap("gh", vim.lsp.buf.hover, "Hover Documentation")
 		-- [ИНСПЕКЦИЯ]: Показывает подсказку по аргументам функции прямо внутри круглых скобок
 		nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+
+		-- [НАВИГАЦИЯ ПО ОШИБКАМ]: Прыжки к следующей/предыдущей ошибке с выводом плавающего окна текста ошибки
+		-- Вариант 1: Через Ctrl+Shift+j / Ctrl+Shift+k
+		nmap("<C-S-j>", function()
+			vim.diagnostic.jump({ count = 1, float = true })
+		end, "Next Diagnostic")
+		nmap("<C-S-k>", function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end, "Prev Diagnostic")
+
+		-- Вариант 2: Резервные классические бинды (если терминал перехватывает Ctrl+Shift)
+		nmap("]d", function()
+			vim.diagnostic.jump({ count = 1, float = true })
+		end, "Next Diagnostic")
+		nmap("[d", function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end, "Prev Diagnostic")
 
 		-- Более редкие функции LSP (работа с воркспейсами и прыжок к декларации)
 		nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -118,7 +142,7 @@ M.config = function()
 					path = runtime_path,
 				},
 				diagnostics = {
-					globals = { "vim" }, -- Говорим серверу: "vim — это глобальный объект, всё в порядке"
+					globals = { "vim" }, -- Говорим serverу: "vim — это глобальный объект, всё в порядке"
 				},
 				workspace = { library = vim.api.nvim_get_runtime_file("", true) },
 				telemetry = { enable = false },
