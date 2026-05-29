@@ -13,7 +13,7 @@ npm install -g @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint
 > hotkeys (general):
 
 ```
-f12 - toggle terminal
+control ` - toggle terminal
 leader e - toggle neo-tree and editor with focus
 leader n - toggle neo-tree
 leader f - files
