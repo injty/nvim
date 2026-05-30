@@ -42,7 +42,7 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4), -- Прокрутка документации к методу вверх
 				["<C-f>"] = cmp.mapping.scroll_docs(4), -- Прокрутка документации к методу вниз
-				["<C-Space>"] = cmp.mapping.complete(), -- Принудительно вызвать окно автодополнения
+				["<C-K>"] = cmp.mapping.complete(), -- Принудительно вызвать окно автодополнения
 				["<C-e>"] = cmp.mapping.abort(), -- Закрыть окно автодополнения, если оно мешает
 
 				-- При нажатии на Enter (<CR>) подтверждается текущий выбранный элемент.

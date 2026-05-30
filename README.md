@@ -14,17 +14,19 @@ npm install -g @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint
 
 ```
 control ` - toggle terminal
+
 leader e - toggle neo-tree and editor with focus
 leader n - toggle neo-tree
+
 leader f - files
 leader / - live grep
 leader b - files buffer
+
 leader d - workspace diagnostics
-```
+control shif j - get to next diagnostics
+control shif k - get to previous diagnostics
 
-> hotkeys (n, v, i)
 
-```
 f d - delete selected without copy to clipboard
 shift k - delete line without copy to clipboard
 g h - get help
