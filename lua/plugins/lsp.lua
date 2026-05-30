@@ -60,10 +60,10 @@ M.config = function()
 
 		-- [НАВИГАЦИЯ ПО ОШИБКАМ]: Прыжки к следующей/предыдущей ошибке с выводом плавающего окна текста ошибки
 		-- Вариант 1: Через Ctrl+Shift+j / Ctrl+Shift+k
-		nmap("<C-S-j>", function()
+		nmap("<leader>dp", function()
 			vim.diagnostic.jump({ count = 1, float = true })
 		end, "Next Diagnostic")
-		nmap("<C-S-k>", function()
+		nmap("<leader>dn", function()
 			vim.diagnostic.jump({ count = -1, float = true })
 		end, "Prev Diagnostic")
 

@@ -22,9 +22,9 @@ leader f - files
 leader / - live grep
 leader b - files buffer
 
-leader d - workspace diagnostics
-control shif j - get to next diagnostics
-control shif k - get to previous diagnostics
+leader d d - workspace diagnostics
+leader d n - get to next diagnostics
+leader d p - get to previous diagnostics
 
 
 f d - delete selected without copy to clipboard
