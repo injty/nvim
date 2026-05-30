@@ -34,7 +34,7 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("toggleterm").setup({
-				open_mapping = [[<C-`>]],
+				open_mapping = [[<C-t>]],
 				shade_terminals = false,
 			})
 		end,
