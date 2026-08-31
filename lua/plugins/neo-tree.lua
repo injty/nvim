@@ -31,10 +31,12 @@ return {
 			require("neo-tree").setup({
 				window = {
 					position = "right",
-					width = 50,
+					width = 45,
 					mappings = {
 						["c"] = "close_all_nodes",
 						["h"] = "toggle_hidden",
+						["s"] = "open_split",
+						["v"] = "open_vsplit",
 					},
 				},
 				filesystem = {

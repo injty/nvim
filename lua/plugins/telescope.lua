@@ -43,7 +43,7 @@ M.keys = {
 M.config = function()
 	require("telescope").setup({
 		defaults = {
-			initial_mode = "normal",
+			initial_mode = "insert",
 			mappings = {
 				i = {
 					["<C-u>"] = false,
