@@ -10,7 +10,6 @@ M.dependencies = {
 M.servers = {
   "astro",
   "clangd",
-  "rust_analyzer",
   "pyright",
   "ts_ls",
   "lua_ls",

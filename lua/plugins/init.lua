@@ -15,11 +15,6 @@ return {
 		ft = "clojure",
 	},
 	{
-		"eraserhd/parinfer-rust",
-		build = "cargo build --release",
-		event = "VeryLazy",
-	},
-	{
 		"max397574/better-escape.nvim",
 		event = "VeryLazy",
 		config = function()
