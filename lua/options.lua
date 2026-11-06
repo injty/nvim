@@ -72,3 +72,19 @@ vim.g.maplocalleader = " "
 vim.opt.tabstop = 2 -- Ширина знака табуляции в пробелах
 vim.opt.shiftwidth = 2 -- Размер отступа при форматировании (команды << и >>)
 vim.opt.softtabstop = 2 -- Сколько пробелов вставляется, если нажать Tab в режиме вставки
+vim.opt.expandtab = true
+vim.opt.winborder = "single"
+
+-- Scoop curl использует свой TLS backend; системный Windows curl может падать
+-- с CRYPT_E_NO_REVOCATION_CHECK при загрузке парсеров. Только PATH Neovim.
+if vim.fn.has("win32") == 1 then
+	-- tree-sitter CLI по умолчанию ищет MSVC; Scoop предоставляет MinGW GCC.
+	if not vim.env.CC and vim.fn.executable("cl") == 0 and vim.fn.executable("gcc") == 1 then
+		vim.env.CC = vim.fn.exepath("gcc")
+	end
+	local scoop = vim.env.SCOOP or vim.fs.joinpath(vim.env.USERPROFILE, "scoop")
+	local curl_bin = vim.fs.joinpath(scoop, "apps", "curl", "current", "bin")
+	if vim.fn.executable(vim.fs.joinpath(curl_bin, "curl.exe")) == 1 then
+		vim.env.PATH = curl_bin .. ";" .. vim.env.PATH
+	end
+end

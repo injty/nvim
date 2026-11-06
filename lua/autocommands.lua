@@ -9,16 +9,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
 })
 
--- Disable diagnostics in certain buffers.
-local disable_diag_group = vim.api.nvim_create_augroup("DisableDiag", { clear = true })
-vim.api.nvim_create_autocmd("BufNewFile", {
-  callback = function()
-    vim.diagnostic.disable(0)
-  end,
-  group = disable_diag_group,
-  pattern = "conjure-log-*",
-})
-
 -- Close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
@@ -42,7 +32,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "term://*",
   callback = function(event)
-    local opts = { buffer = 0 }
+    local opts = { buffer = event.buf }
     vim.keymap.set('t', '<esc>', [[<c-\><c-n>]], opts)
     vim.keymap.set("t", "<c-w><c-w>", [[<cmd>wincmd w<cr>]], opts)
   end,

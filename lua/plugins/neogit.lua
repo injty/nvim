@@ -1,5 +1,5 @@
 return {
-  "TimUntersberger/neogit",
+  "NeogitOrg/neogit",
   cmd = "Neogit",
   opts = {
     kind = "split",
@@ -9,7 +9,7 @@ return {
       item = { "+", "-" },
       hunk = { "", "" },
     },
-    integrations = { diffview = true },
+    integrations = { diffview = false, telescope = true },
   },
   keys = {
     { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },

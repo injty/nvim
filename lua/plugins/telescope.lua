@@ -5,7 +5,9 @@ local M = {
 
 local function project_files()
 	local opts = {}
-	if vim.loop.fs_stat(".git") then
+	local root = vim.fs.root(0, ".git") or vim.fs.root(vim.fn.getcwd(), ".git")
+	if root then
+		opts.cwd = root
 		opts.show_untracked = true
 		require("telescope.builtin").git_files(opts)
 	else

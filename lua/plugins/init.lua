@@ -1,18 +1,19 @@
 return {
 	{
 		"tpope/vim-sleuth",
-		event = "BufReadPre",
+		event = { "BufReadPre", "BufNewFile" },
 	},
 	{
 		"numToStr/Comment.nvim",
-		event = "BufReadPost",
+		event = { "BufReadPost", "BufNewFile" },
+		dependencies = {
+			{ "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
+		},
 		config = function()
-			require("Comment").setup()
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
 		end,
-	},
-	{
-		"Olical/conjure",
-		ft = "clojure",
 	},
 	{
 		"max397574/better-escape.nvim",
@@ -22,11 +23,9 @@ return {
 		end,
 	},
 	{
-		"MunifTanjim/nui.nvim",
-	},
-	{
 		"akinsho/toggleterm.nvim",
-		event = "VeryLazy",
+		cmd = { "ToggleTerm", "TermExec" },
+		keys = { { "<C-t>", "<cmd>ToggleTerm<cr>", mode = { "n", "i", "t" }, desc = "Toggle terminal" } },
 		config = function()
 			require("toggleterm").setup({
 				open_mapping = [[<C-t>]],
@@ -35,7 +34,7 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.nvim",
+		"nvim-mini/mini.nvim",
 		event = "VeryLazy",
 		version = false,
 		config = function()

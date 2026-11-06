@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		cmd = "Neotree",
+		dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim", "nvim-tree/nvim-web-devicons" },
 		keys = {
 			{ "<leader>n", "<cmd>Neotree toggle<cr>", desc = "Explorer NeoTree (root dir)", remap = true },
 			{
@@ -20,7 +21,7 @@ return {
 		init = function()
 			vim.g.neo_tree_remove_legacy_commands = 1
 			if vim.fn.argc() == 1 then
-				local stat = vim.loop.fs_stat(vim.fn.argv(0))
+				local stat = vim.uv.fs_stat(vim.fn.argv(0))
 				if stat and stat.type == "directory" then
 					require("neo-tree")
 				end

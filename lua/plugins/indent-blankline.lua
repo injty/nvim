@@ -1,6 +1,6 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
-	event = "BufReadPre",
+	event = { "BufReadPre", "BufNewFile" },
 	main = "ibl",
 	opts = {
 		-- Настройка самого символа линий отступа

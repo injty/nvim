@@ -1,6 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
+if not vim.uv.fs_stat(lazypath) then
+	local output = vim.fn.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
@@ -8,13 +8,16 @@ if not vim.loop.fs_stat(lazypath) then
 		"https://github.com/folke/lazy.nvim.git",
 		lazypath,
 	})
+	if vim.v.shell_error ~= 0 then
+		error("Failed to install lazy.nvim: " .. output)
+	end
 end
 vim.opt.runtimepath:prepend(lazypath)
 
--- Загрузка базовых настроек Neovim
 require("options")
+require("autocommands")
+require("keymaps")
 
--- Инициализация менеджера плагинов
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
 	performance = {
@@ -33,28 +36,4 @@ require("lazy").setup("plugins", {
 	},
 })
 
--- Быстрый доступ к меню Lazy
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
-
--- Отложенная загрузка автокоманд и маппингов для быстрой работы Neovim
-vim.api.nvim_create_autocmd("User", {
-	pattern = "VeryLazy",
-	callback = function()
-		require("autocommands")
-		require("keymaps")
-	end,
-})
-
--- disabled italic fonts
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		local hl_groups = vim.api.nvim_get_hl(0, {})
-		for hl_name, hl_attrs in pairs(hl_groups) do
-			if hl_attrs.italic then
-				hl_attrs.italic = false
-				vim.api.nvim_set_hl(0, hl_name, hl_attrs)
-			end
-		end
-	end,
-})
+-- <leader>l остаётся привычным переходом в конец строки; менеджер доступен через :Lazy.
