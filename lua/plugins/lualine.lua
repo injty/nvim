@@ -5,7 +5,7 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = false,
-				theme = "catppuccin-nvim",
+				theme = "auto",
 				component_separators = "|",
 				section_separators = "",
 			},

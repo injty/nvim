@@ -13,6 +13,8 @@ if not vim.uv.fs_stat(lazypath) then
 	end
 end
 vim.opt.runtimepath:prepend(lazypath)
+vim.opt.termguicolors = true
+vim.cmd.colorscheme("cinderline")
 
 require("options")
 require("autocommands")
